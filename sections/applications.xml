@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is not tied into the python configuration system at all, which
+is unfortunate.  In the future it would make sense to create an applications
+script and tie it into geometry parameters to generate this file. -->
+
+<applications>
+ 
+ <application title="gnome-terminal">
+  <position>
+   <x>0</x>
+   <y>0</y>
+  </position>
+ </application>
+
+ <application title="ipython">
+  <position>
+   <x>0</x>
+   <y>390</y>
+  </position>
+ </application>
+
+ <application class="Firefox">
+  <position>
+   <x>648</x>
+   <y>0</y>
+  </position>
+ </application>
+
+</applications>

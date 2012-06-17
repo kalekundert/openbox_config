@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <resize>
+    <drawContents>yes</drawContents>
+    <popupShow>Nonpixel</popupShow>
+    <!-- 'Always', 'Never', or 'Nonpixel' (xterms and such) -->
+    <popupPosition>Center</popupPosition>
+    <!-- 'Center', 'Top', or 'Fixed' -->
+    <popupFixedPosition>
+      <x>10</x>
+      <y>10</y>
+    </popupFixedPosition>
+  </resize>

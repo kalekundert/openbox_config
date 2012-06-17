@@ -1,0 +1,471 @@
+<?xml version="1.0" ?>
+  <keyboard>
+    <keybind key="A-C-k">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <y>
+          0
+        </y>
+        <width>
+          1268
+        </width>
+        <height>
+          366
+        </height>
+        <x>
+          648
+        </x>
+      </action>
+    </keybind>
+    <keybind key="A-C-j">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <y>
+          390
+        </y>
+        <width>
+          1916
+        </width>
+        <height>
+          786
+        </height>
+        <x>
+          0
+        </x>
+      </action>
+    </keybind>
+    <keybind key="A-semicolon">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <y>
+          0
+        </y>
+        <width>
+          620
+        </width>
+        <height>
+          366
+        </height>
+        <x>
+          1296
+        </x>
+      </action>
+    </keybind>
+    <keybind key="A-C-h">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <y>
+          0
+        </y>
+        <width>
+          1916
+        </width>
+        <height>
+          366
+        </height>
+        <x>
+          0
+        </x>
+      </action>
+    </keybind>
+    <keybind key="A-C-f">
+      <action name="SendToDesktop">
+        <follow>
+          False
+        </follow>
+        <to>
+          4
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-C-d">
+      <action name="SendToDesktop">
+        <follow>
+          False
+        </follow>
+        <to>
+          3
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-C-c">
+      <action name="SendToDesktop">
+        <follow>
+          False
+        </follow>
+        <to>
+          7
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-C-a">
+      <action name="SendToDesktop">
+        <follow>
+          False
+        </follow>
+        <to>
+          1
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-C-z">
+      <action name="SendToDesktop">
+        <follow>
+          False
+        </follow>
+        <to>
+          5
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-C-x">
+      <action name="SendToDesktop">
+        <follow>
+          False
+        </follow>
+        <to>
+          6
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-C-v">
+      <action name="SendToDesktop">
+        <follow>
+          False
+        </follow>
+        <to>
+          8
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-C-s">
+      <action name="SendToDesktop">
+        <follow>
+          False
+        </follow>
+        <to>
+          2
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-S-Escape">
+      <action name="Execute">
+        <command>
+          ~/.config/openbox/reconfigure.sh
+        </command>
+      </action>
+    </keybind>
+    <keybind key="A-C-q">
+      <action name="Execute">
+        <command>
+          gvim
+        </command>
+      </action>
+    </keybind>
+    <keybind key="A-Return">
+      <action name="GoToDesktop">
+        <to>
+          last
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-C-Return">
+      <action name="SendToDesktop">
+        <follow>
+          False
+        </follow>
+        <to>
+          last
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-C-r">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <y>
+          390
+        </y>
+        <width>
+          1268
+        </width>
+        <height>
+          786
+        </height>
+        <x>
+          648
+        </x>
+      </action>
+    </keybind>
+    <keybind key="A-BackSpace">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="A-Tab">
+      <action name="NextWindow"/>
+    </keybind>
+    <keybind key="A-v">
+      <action name="GoToDesktop">
+        <to>
+          8
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-x">
+      <action name="GoToDesktop">
+        <to>
+          6
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-a">
+      <action name="GoToDesktop">
+        <to>
+          1
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-c">
+      <action name="GoToDesktop">
+        <to>
+          7
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-e">
+      <action name="Execute">
+        <command>
+          gnome-terminal --geometry=80x42 -e &quot;ipython --pylab&quot;
+        </command>
+      </action>
+    </keybind>
+    <keybind key="A-d">
+      <action name="GoToDesktop">
+        <to>
+          3
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-f">
+      <action name="GoToDesktop">
+        <to>
+          4
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-i">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <y>
+          0
+        </y>
+        <width>
+          644
+        </width>
+        <height>
+          1176
+        </height>
+        <x>
+          648
+        </x>
+      </action>
+    </keybind>
+    <keybind key="A-h">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <y>
+          0
+        </y>
+        <width>
+          644
+        </width>
+        <height>
+          366
+        </height>
+        <x>
+          0
+        </x>
+      </action>
+    </keybind>
+    <keybind key="A-k">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <y>
+          0
+        </y>
+        <width>
+          644
+        </width>
+        <height>
+          366
+        </height>
+        <x>
+          648
+        </x>
+      </action>
+    </keybind>
+    <keybind key="A-j">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <y>
+          390
+        </y>
+        <width>
+          644
+        </width>
+        <height>
+          786
+        </height>
+        <x>
+          0
+        </x>
+      </action>
+    </keybind>
+    <keybind key="A-m">
+      <action name="MaximizeFull"/>
+    </keybind>
+    <keybind key="A-l">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <y>
+          390
+        </y>
+        <width>
+          644
+        </width>
+        <height>
+          786
+        </height>
+        <x>
+          648
+        </x>
+      </action>
+    </keybind>
+    <keybind key="A-o">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <y>
+          0
+        </y>
+        <width>
+          1268
+        </width>
+        <height>
+          1176
+        </height>
+        <x>
+          648
+        </x>
+      </action>
+    </keybind>
+    <keybind key="A-n">
+      <action name="Iconify"/>
+    </keybind>
+    <keybind key="A-q">
+      <action name="Execute">
+        <command>
+          gnome-terminal --geometry=80x24
+        </command>
+      </action>
+    </keybind>
+    <keybind key="A-p">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <y>
+          0
+        </y>
+        <width>
+          620
+        </width>
+        <height>
+          1176
+        </height>
+        <x>
+          1296
+        </x>
+      </action>
+    </keybind>
+    <keybind key="A-s">
+      <action name="GoToDesktop">
+        <to>
+          2
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-r">
+      <action name="Execute">
+        <command>
+          gnome-terminal --geometry=80x24 -e su
+        </command>
+      </action>
+    </keybind>
+    <keybind key="A-u">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <y>
+          0
+        </y>
+        <width>
+          644
+        </width>
+        <height>
+          1176
+        </height>
+        <x>
+          0
+        </x>
+      </action>
+    </keybind>
+    <keybind key="A-w">
+      <action name="Execute">
+        <command>
+          firefox
+        </command>
+      </action>
+    </keybind>
+    <keybind key="A-Escape">
+      <action name="Exit"/>
+    </keybind>
+    <keybind key="A-y">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <y>
+          0
+        </y>
+        <width>
+          1292
+        </width>
+        <height>
+          1176
+        </height>
+        <x>
+          0
+        </x>
+      </action>
+    </keybind>
+    <keybind key="A-apostrophe">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <y>
+          390
+        </y>
+        <width>
+          620
+        </width>
+        <height>
+          786
+        </height>
+        <x>
+          1296
+        </x>
+      </action>
+    </keybind>
+    <keybind key="A-z">
+      <action name="GoToDesktop">
+        <to>
+          5
+        </to>
+      </action>
+    </keybind>
+    <keybind key="A-C-Tab">
+      <action name="PreviousWindow"/>
+    </keybind>
+  </keyboard>
