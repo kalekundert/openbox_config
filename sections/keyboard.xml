@@ -7,13 +7,13 @@
           0
         </y>
         <width>
-          1268
+          1264
         </width>
         <height>
-          366
+          380
         </height>
         <x>
-          648
+          650
         </x>
       </action>
     </keybind>
@@ -21,13 +21,13 @@
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <y>
-          390
+          386
         </y>
         <width>
-          1916
+          1914
         </width>
         <height>
-          786
+          808
         </height>
         <x>
           0
@@ -41,13 +41,13 @@
           0
         </y>
         <width>
-          620
+          614
         </width>
         <height>
-          366
+          380
         </height>
         <x>
-          1296
+          1300
         </x>
       </action>
     </keybind>
@@ -58,10 +58,10 @@
           0
         </y>
         <width>
-          1916
+          1914
         </width>
         <height>
-          366
+          380
         </height>
         <x>
           0
@@ -183,16 +183,16 @@
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <y>
-          390
+          386
         </y>
         <width>
-          1268
+          1264
         </width>
         <height>
-          786
+          808
         </height>
         <x>
-          648
+          650
         </x>
       </action>
     </keybind>
@@ -216,6 +216,13 @@
         </to>
       </action>
     </keybind>
+    <keybind key="A-Left">
+      <action name="Execute">
+        <command>
+          /home/kale/hacking/scripts/music pause
+        </command>
+      </action>
+    </keybind>
     <keybind key="A-a">
       <action name="GoToDesktop">
         <to>
@@ -230,10 +237,17 @@
         </to>
       </action>
     </keybind>
+    <keybind key="A-Right">
+      <action name="Execute">
+        <command>
+          /home/kale/hacking/scripts/music skip
+        </command>
+      </action>
+    </keybind>
     <keybind key="A-e">
       <action name="Execute">
         <command>
-          gnome-terminal --geometry=80x42 -e &quot;ipython --pylab&quot;
+          /home/kale/hacking/installs/bin/sakura --geometry=642x806 --class=Python -e &quot;zsh -ic ipython&quot;
         </command>
       </action>
     </keybind>
@@ -261,10 +275,10 @@
           644
         </width>
         <height>
-          1176
+          1194
         </height>
         <x>
-          648
+          650
         </x>
       </action>
     </keybind>
@@ -278,7 +292,7 @@
           644
         </width>
         <height>
-          366
+          380
         </height>
         <x>
           0
@@ -295,10 +309,10 @@
           644
         </width>
         <height>
-          366
+          380
         </height>
         <x>
-          648
+          650
         </x>
       </action>
     </keybind>
@@ -306,13 +320,13 @@
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <y>
-          390
+          386
         </y>
         <width>
           644
         </width>
         <height>
-          786
+          808
         </height>
         <x>
           0
@@ -326,16 +340,16 @@
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <y>
-          390
+          386
         </y>
         <width>
           644
         </width>
         <height>
-          786
+          808
         </height>
         <x>
-          648
+          650
         </x>
       </action>
     </keybind>
@@ -346,13 +360,13 @@
           0
         </y>
         <width>
-          1268
+          1264
         </width>
         <height>
-          1176
+          1194
         </height>
         <x>
-          648
+          650
         </x>
       </action>
     </keybind>
@@ -362,7 +376,7 @@
     <keybind key="A-q">
       <action name="Execute">
         <command>
-          gnome-terminal --geometry=80x24
+          /home/kale/hacking/installs/bin/sakura --geometry=642x378
         </command>
       </action>
     </keybind>
@@ -373,13 +387,13 @@
           0
         </y>
         <width>
-          620
+          614
         </width>
         <height>
-          1176
+          1194
         </height>
         <x>
-          1296
+          1300
         </x>
       </action>
     </keybind>
@@ -393,7 +407,7 @@
     <keybind key="A-r">
       <action name="Execute">
         <command>
-          gnome-terminal --geometry=80x24 -e su
+          /home/kale/hacking/installs/bin/sakura --geometry=642x378 --class=Root -e su
         </command>
       </action>
     </keybind>
@@ -407,7 +421,7 @@
           644
         </width>
         <height>
-          1176
+          1194
         </height>
         <x>
           0
@@ -431,10 +445,10 @@
           0
         </y>
         <width>
-          1292
+          1294
         </width>
         <height>
-          1176
+          1194
         </height>
         <x>
           0
@@ -445,16 +459,16 @@
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <y>
-          390
+          386
         </y>
         <width>
-          620
+          614
         </width>
         <height>
-          786
+          808
         </height>
         <x>
-          1296
+          1300
         </x>
       </action>
     </keybind>

@@ -1,0 +1,100 @@
+!! This theme places a bright orange border around active windows and a light
+!! grey border around inactive ones.  It is not intended to be used with any
+!! other window decorations, but unfortunately these cannot be disabled in the
+!! theme file itself.  Instead, they can be disabled in the applications
+!! section of rc.xml:
+!!
+!! <application clas="*">
+!!  <decor>no</decor>
+!! </application>
+
+!! Menu background {{{1
+menu.items.bg: solid
+menu.items.bg.color: #000000
+
+!! Menu text {{{1
+menu.items.text.color: #b8b8b8
+menu.items.justify: left
+menu.items.disabled.text.color: #606060
+
+!! Menu headers {{{1
+menu.title.bg: raised splitvertical gradient
+menu.title.bg.color: #303030
+menu.title.bg.colorTo: #181818
+menu.title.text.color: white
+menu.title.text.justify: center
+
+!! Selected menu item {{{1
+menu.items.active.bg: raised splitvertical gradient
+menu.items.active.bg.color: #6d95de
+menu.items.active.bg.colorTo: #2b829d
+menu.items.active.text.color: #f8f8f8
+
+!! Titlebar {{{1
+window.active.title.bg: solid flat
+window.active.title.bg.color: #000000
+window.inactive.title.bg: solid flat
+window.inactive.title.bg.color: #EEEEE6
+
+!! Titlebar text {{{1
+window.label.text.justify: center
+window.active.label.bg: parentrelative
+window.active.label.text.color: #f8f8f8
+window.inactive.label.bg: parentrelative
+window.inactive.label.text.color: #747474
+
+!! Window buttons {{{1
+window.*.button.*.bg: parentrelative
+window.active.button.*.hover.bg: flat splitvertical gradient border
+window.inactive.button.*.hover.bg: parentrelative
+window.*.button.*.pressed.bg: flat splitvertical gradient border
+
+window.active.button.*.hover.bg.color: #398dc6
+window.active.button.*.hover.bg.colorTo: #236d83
+window.active.button.*.hover.bg.border.color: #236d83
+
+window.active.button.*.pressed.bg.color: #235679
+window.active.button.*.pressed.bg.colorTo: #154350
+window.active.button.*.pressed.image.color: #898989
+window.active.button.*.pressed.bg.border.color: #154350
+window.inactive.button.*.pressed.bg.color: #4ab5ff
+window.inactive.button.*.pressed.bg.colorTo: #38b3d6
+window.inactive.button.*.pressed.image.color: #b7fdef
+window.inactive.button.*.pressed.bg.border.color: #38b3d6
+
+window.active.button.*.image.color: #e0e0e0
+window.active.button.disabled.image.color: #707070
+window.inactive.button.*.image.color: #747474
+window.inactive.button.disabled.image.color: #c0c0c0
+
+!! Borders {{{1
+!!!window.active.border.color: #181818
+!!!window.active.border.color: #CACAB6
+!!!window.inactive.border.color: #404040
+!!!window.inactive.title.separator.color: #eeeee6
+!!!window.active.client.color:  #181818
+!!!window.active.client.color:  #CACAB6
+
+!!window.active.border.color: #e18a51
+window.active.border.color: #ff5203
+window.inactive.border.color: #CACAB6
+border.width: 3
+padding.width: 0
+window.handle.width: 0
+window.active.client.color:  #ff0000
+window.inactive.client.color:  #0000ff
+window.client.padding.width: 0
+window.client.padding.height: 0
+menu.overlap: 0
+
+!! Font shadows {{{1
+menu.items.font:shadow=y:shadowtint=30
+
+!! On-screen displays {{{1
+osd.bg: solid flat
+osd.bg.color: #000000
+
+osd.border.color: #404040
+osd.border.width: 1
+
+!! }}}1

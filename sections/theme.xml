@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
   <theme>
-    <name>Onyx</name>
+    <name>minimalist</name>
     <!-- <titleLayout>NLIMC</titleLayout> -->
     <titleLayout>NLIMC</titleLayout>
     <keepBorder>yes</keepBorder>

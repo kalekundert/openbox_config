@@ -8,11 +8,11 @@
 from bindings import *
 from geometry import *
 
-terminal = 'gnome-terminal --geometry=%dx%d'
+terminal = '/home/kale/hacking/installs/bin/sakura --geometry=%dx%d'
 editor = 'gvim'
 browser = 'firefox'
-root_shell = terminal + ' -e su'
-python_shell = terminal + ' -e "ipython --pylab"'
+root_shell = terminal + ' --class=Root -e su'
+python_shell = terminal + ' --class=Python -e "zsh -ic ipython"'
 openbox = '~/.config/openbox/reconfigure.sh'
 
 bindings = {
@@ -21,6 +21,10 @@ bindings = {
         'e' : Execute(python_shell % tall_terminal),
         'r' : Execute(root_shell % short_terminal),
         'C-q' : Execute(editor),
+
+        'Left' : Execute('/home/kale/hacking/scripts/music pause'),
+        'Right' : Execute('/home/kale/hacking/scripts/music skip'),
+
         'S-Escape' : Execute(openbox),
 
         'a' : GoToDesktop(1), 'C-a' : SendToDesktop(1),

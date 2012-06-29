@@ -2,27 +2,34 @@
 
 <!-- This file is not tied into the python configuration system at all, which
 is unfortunate.  In the future it would make sense to create an applications
-script and tie it into geometry parameters to generate this file. -->
+script and use the geometry parameters to generate this file. -->
+
+<!-- The obxprop utility can be used to find the name, title, and class
+parameters for any window. -->
 
 <applications>
+
+ <application class="*">
+  <decor>no</decor>
+ </application>
  
- <application title="gnome-terminal">
+ <application class="Sakura">
   <position>
    <x>0</x>
    <y>0</y>
   </position>
  </application>
 
- <application title="ipython">
+ <application class="Python">
   <position>
    <x>0</x>
-   <y>390</y>
+   <y>386</y>
   </position>
  </application>
 
  <application class="Firefox">
   <position>
-   <x>648</x>
+   <x>650</x>
    <y>0</y>
   </position>
  </application>
