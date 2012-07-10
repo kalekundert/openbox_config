@@ -14,7 +14,7 @@ import gtk
 screen_width = gtk.gdk.screen_width()
 screen_height = gtk.gdk.screen_height()
 
-x = division_width = 650
+x = division_width = 650 if screen_height > 1600 else 586
 y = division_height = 386
 z = 2 * division_width
 
