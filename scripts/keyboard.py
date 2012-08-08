@@ -9,7 +9,7 @@ from bindings import *
 from geometry import *
 
 terminal = '/home/kale/hacking/installs/bin/sakura --geometry=%dx%d'
-editor = 'gvim'
+editor = '/home/kale/hacking/installs/bin/gvim'
 browser = 'firefox'
 root_shell = terminal + ' --class=Root -e su'
 python_shell = terminal + ' --class=Python -e "zsh -ic ipython"'
@@ -21,7 +21,12 @@ bindings = {
         'e' : Execute(python_shell % tall_terminal),
         'r' : Execute(root_shell % short_terminal),
         'C-q' : Execute(editor),
+        'C-w' : Execute('dia'),
 
+        'Up' : Execute('amixer -q set Master 5%+ unmute'),
+        'Down' : Execute('amixer -q set Master 5%- unmute'),
+        'S-Up' : Execute('amixer -q set Master unmute'),
+        'S-Down' : Execute('amixer -q set Master mute'),
         'Left' : Execute('/home/kale/hacking/scripts/music pause'),
         'Right' : Execute('/home/kale/hacking/scripts/music skip'),
 
