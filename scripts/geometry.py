@@ -14,16 +14,27 @@ import gtk
 screen_width = gtk.gdk.screen_width()
 screen_height = gtk.gdk.screen_height()
 
-x = division_width = 650 if screen_height > 1600 else 586
-y = division_height = 386
-z = 2 * division_width
-
 onyx = { "top" : 22, "bottom" : 2, "sides" : 2 }
 clearlooks  = { "top" : 20, "bottom" : 5, "sides" : 2 }
 minimalist = { "top" : 3, "bottom" : 3, "sides" : 3 }
 
-vertical_padding = minimalist["top"] + minimalist["bottom"]
-horizontal_padding = 2 * minimalist["sides"]
+theme = minimalist
+
+vertical_padding = theme["top"] + theme["bottom"]
+horizontal_padding = 2 * theme["sides"]
+
+# When using a 10-point monospace font, each column in a gvim window is 8
+# pixels wide.  The full width of the window is 10 pixels wider than the sum of
+# the columns to account for 5 pixels of padding on each side of the window.
+# 3 of these pixels are provided by the window manager and should be taken from
+# the theme definition.  The 2 remaining pixels are provided by gvim and cannot
+# be changed.
+
+columns = 80 if screen_width > 1600 else 72
+
+x = division_width = 8 * columns + 4 + horizontal_padding
+y = division_height = 386
+z = 2 * division_width
 
 full_width = screen_width - horizontal_padding
 full_height = screen_height - vertical_padding
