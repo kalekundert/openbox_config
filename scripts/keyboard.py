@@ -37,6 +37,14 @@ bindings = {
         'x': GoToDesktop(6), 'C-x': SendToDesktop(6),
         'c': GoToDesktop(7), 'C-c': SendToDesktop(7),
         'v': GoToDesktop(8), 'C-v': SendToDesktop(8),
+        'S-a': GoToDesktop(9), 'C-S-a': SendToDesktop(9),
+        'S-s': GoToDesktop(10), 'C-S-s': SendToDesktop(10),
+        'S-d': GoToDesktop(11), 'C-S-d': SendToDesktop(11),
+        'S-f': GoToDesktop(12), 'C-S-f': SendToDesktop(12),
+        'S-z': GoToDesktop(13), 'C-S-z': SendToDesktop(13),
+        'S-x': GoToDesktop(14), 'C-S-x': SendToDesktop(14),
+        'S-c': GoToDesktop(15), 'C-S-c': SendToDesktop(15),
+        'S-v': GoToDesktop(16), 'C-S-v': SendToDesktop(16),
 
         'y': MoveResizeTo(0, 0, left_middle_width, full_height),
         'u': MoveResizeTo(0, 0, left_width, full_height),
@@ -58,10 +66,11 @@ bindings = {
         'apostrophe': MoveResizeTo(z, y, right_width, bottom_height),
 
         'n': Action('Iconify'),
-        'm': Action('MaximizeFull'),
+        'm': MoveResizeTo(0, 0, full_width, full_height),
 
         'Tab': Action('NextWindow'),
         'S-Tab': Action('PreviousWindow'),
+        'C-Tab': Action('PreviousWindow'),
         'Return': GoToDesktop('last'),
         'S-Return': SendToDesktop('last'),
 

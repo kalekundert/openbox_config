@@ -12,7 +12,7 @@ import gtk
 # 80-character terminals using a 10-point monospace font.
 
 screen_width = gtk.gdk.screen_width()
-screen_height = gtk.gdk.screen_height()
+screen_height = gtk.gdk.screen_height() - 1
 
 onyx = { "top" : 22, "bottom" : 2, "sides" : 2 }
 clearlooks  = { "top" : 20, "bottom" : 5, "sides" : 2 }
