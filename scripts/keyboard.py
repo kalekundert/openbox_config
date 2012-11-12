@@ -3,29 +3,35 @@
 # This script provides an expressive way to control openbox key-bindings.  The
 # most prominent part of the script is the bindings dictionary, which maps
 # hotkeys to actions.  Note that each hotkey is preceded by an implied 'Alt',
-# or 'A-' in the language of openbox.
+# or 'A-' in the language of openbox.  You can find the name for any other key 
+# by running the 'xev' command.
 
 from bindings import *
 from geometry import *
 
 terminal = '/home/kale/hacking/installs/bin/sakura --geometry=%dx%d'
-editor = '/home/kale/hacking/installs/bin/gvim'
+editor = 'gvim'
 browser = 'firefox'
+email = 'thunderbird'
 ipython = terminal + ' --class=Python -e "zsh -ic ipython"'
 openbox = '~/.config/openbox/reconfigure.sh'
+pianobar = '/home/kale/hacking/scripts/music %s'
 
 bindings = {
         'q': Execute(terminal % short_terminal),
         'w': Execute(browser),
+        'C-w': Execute(email),
         'e': Execute(editor),
         'r': Execute(ipython % tall_terminal),
 
-        'Up': Execute('amixer -q set Master 5%+ unmute'),
-        'Down': Execute('amixer -q set Master 5%- unmute'),
-        'S-Up': Execute('amixer -q set Master unmute'),
-        'S-Down': Execute('amixer -q set Master mute'),
-        'Left': Execute('/home/kale/hacking/scripts/music pause'),
-        'Right': Execute('/home/kale/hacking/scripts/music skip'),
+        'Up': Execute(pianobar % 'louder'),
+        'Down': Execute(pianobar % 'quieter'),
+        'S-Up': Execute(pianobar % 'unmute'),
+        'S-Down': Execute(pianobar % 'mute'),
+        'Left': Execute(pianobar % 'pause'),
+        'Right': Execute(pianobar % 'skip'),
+        'S-Left': Execute(pianobar % 'love'),
+        'S-Right': Execute(pianobar % 'hate'),
 
         'Escape': Execute(openbox),
 
@@ -60,10 +66,12 @@ bindings = {
         'C-h': MoveResizeTo(0, 0, full_width, top_height),
         'C-j': MoveResizeTo(0, y, full_width, bottom_height),
         'C-k': MoveResizeTo(x, 0, middle_right_width, top_height),
-        'C-r': MoveResizeTo(x, y, middle_right_width, bottom_height),
+        'C-l': MoveResizeTo(x, y, middle_right_width, bottom_height),
 
-        'semicolon' : MoveResizeTo(z, 0, right_width, top_height),
+        'semicolon': MoveResizeTo(z, 0, right_width, top_height),
         'apostrophe': MoveResizeTo(z, y, right_width, bottom_height),
+        'bracketleft': MoveResizeTo(0, 0, half_width, full_height),
+        'bracketright': MoveResizeTo(q, 0, half_width, full_height),
 
         'n': Action('Iconify'),
         'm': MoveResizeTo(0, 0, full_width, full_height),

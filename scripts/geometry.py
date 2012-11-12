@@ -1,6 +1,6 @@
 import gtk
 
-# This module defines the geometry of every window assigned to a keybinding.
+# This module defines the geometry of every window assigned to a key binding.
 # The four most important parameters are screen_width, screen_height,
 # division_width, and division_height.  The rest of the parameters are derived
 # from these four.
@@ -35,6 +35,7 @@ columns = 80 if screen_width > 1600 else 72
 x = division_width = 8 * columns + 4 + horizontal_padding
 y = division_height = 386
 z = 2 * division_width
+q = screen_width // 2
 
 full_width = screen_width - horizontal_padding
 full_height = screen_height - vertical_padding
@@ -44,6 +45,7 @@ left_middle_width = 2 * division_width - horizontal_padding
 middle_width = left_width
 middle_right_width = full_width - division_width
 right_width = middle_right_width - division_width
+half_width = (screen_width // 2) - horizontal_padding
 
 top_height = division_height - vertical_padding
 bottom_height = full_height - division_height

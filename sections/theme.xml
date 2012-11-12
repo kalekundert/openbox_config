@@ -2,53 +2,37 @@
 
   <theme>
     <name>minimalist</name>
-    <!-- <titleLayout>NLIMC</titleLayout> -->
     <titleLayout>NLIMC</titleLayout>
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
       <name>sans</name>
-      <!-- font size in points -->
       <size>8</size>
-      <!-- 'bold' or 'normal' -->
       <weight>bold</weight>
-      <!-- 'italic' or 'normal' -->
       <slant>normal</slant>
     </font>
     <font place="InactiveWindow">
       <name>sans</name>
-      <!-- font size in points -->
       <size>8</size>
-      <!-- 'bold' or 'normal' -->
       <weight>bold</weight>
-      <!-- 'italic' or 'normal' -->
       <slant>normal</slant>
     </font>
     <font place="MenuHeader">
       <name>sans</name>
-      <!-- font size in points -->
       <size>9</size>
-      <!-- 'bold' or 'normal' -->
       <weight>normal</weight>
-      <!-- 'italic' or 'normal' -->
       <slant>normal</slant>
     </font>
     <font place="MenuItem">
       <name>sans</name>
-      <!-- font size in points -->
       <size>9</size>
-      <!-- 'bold' or 'normal' -->
       <weight>normal</weight>
-      <!-- 'italic' or 'normal' -->
       <slant>normal</slant>
     </font>
     <font place="OnScreenDisplay">
       <name>sans</name>
-      <!-- font size in points -->
       <size>9</size>
-      <!-- 'bold' or 'normal' -->
       <weight>bold</weight>
-      <!-- 'italic' or 'normal' -->
       <slant>normal</slant>
     </font>
   </theme>
