@@ -16,8 +16,11 @@ email = 'thunderbird'
 ipython = terminal + ' --class=Python -e "zsh -ic ipython"'
 openbox = '~/.config/openbox/reconfigure.sh'
 pianobar = '/home/kale/hacking/scripts/music %s'
+backlight = 'xbacklight -steps 1 -%s 10'
 
 bindings = {
+        'Escape': Execute(openbox),
+
         'q': Execute(terminal % short_terminal),
         'w': Execute(browser),
         'C-w': Execute(email),
@@ -32,8 +35,10 @@ bindings = {
         'Right': Execute(pianobar % 'skip'),
         'S-Left': Execute(pianobar % 'love'),
         'S-Right': Execute(pianobar % 'hate'),
+        'Menu': Execute(pianobar % 'upcoming'),
 
-        'Escape': Execute(openbox),
+        'Home': Execute(backlight % 'inc'),
+        'End': Execute(backlight % 'dec'),
 
         'a': GoToDesktop(1), 'C-a': SendToDesktop(1),
         's': GoToDesktop(2), 'C-s': SendToDesktop(2),
