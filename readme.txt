@@ -14,8 +14,8 @@ these libraries can be installed using the following command:
 Alternatively, the size of the screen can be specified manually be setting the
 screen_width and screen_height parameters in the scripts/geometry.py script.
 
-The following command can be used to force OpenBox to load the new
-configuration files:
+The following command can be used to force openbox to reload its configuration 
+files:
 
     $ openbox --reconfigure
 
@@ -35,15 +35,19 @@ programs in the main keybinding script:
 For the terminal specifically, I've removed both the menu and the scrollbars.
 This helps the window fit better when using the default window sizes.
 
-A-q             Launch a terminal.          (Default: gnome-terminal)
+A-q             Launch a terminal.          (Default: sakura)
 A-w             Launch a web browser.       (Default: firefox)
-A-e             Launch a python shell.      (Default: ipython)
-A-r             Launch a root login shell.
-A-C-q           Launch a text editor.       (Default: gvim)
+A-C-w           Launch an email client.     (Default: thunderbird)
+A-e             Launch a text editor.       (Default: gvim)
+A-r             Launch a python shell.      (Default: ipython)
 
 A-Backspace     Close the currently active window.
-A-S-Escape      Rerun the openbox configuration script.
-A-Escape        Log out of the system.
+A-Escape        Rerun the openbox configuration script.
+A-S-Escape      Log out of the system.
+
+Note that the 'A-Escape' hotkey actually does quite a lot.  It decides which 
+monitors should be turned on, replaces caps lock with an extra control, and 
+rebuilds the openbox hotkeys to match the current screen size.
 
 Keybindings for Switching Focus
 ===============================
@@ -58,6 +62,14 @@ A-z             Switch to desktop #5.
 A-x             Switch to desktop #6.
 A-c             Switch to desktop #7.
 A-v             Switch to desktop #8.
+A-S-a           Switch to desktop #9.
+A-S-s           Switch to desktop #10.
+A-S-d           Switch to desktop #11.
+A-S-f           Switch to desktop #12
+A-S-z           Switch to desktop #13.
+A-S-x           Switch to desktop #14.
+A-S-c           Switch to desktop #15.
+A-S-v           Switch to desktop #16.
 
 A-Return        Switch to the previously active desktop.
 
@@ -86,6 +98,9 @@ A-C-j           Fill the bottom row.
 A-C-k           Fill the top row, starting from the middle column.
 A-C-l           Fill the bottom row, starting from the middle column.
 
+A-[             Fill the left half of the screen.
+A-]             Fill the right half of the screen.
+
 A-n             Minimize the current window.
 A-m             Maximize the current window.
 
@@ -97,6 +112,14 @@ A-C-z           Move to desktop #5.
 A-C-x           Move to desktop #6.
 A-C-c           Move to desktop #7.
 A-C-v           Move to desktop #8.
+A-C-S-a         Move to desktop #9.
+A-C-S-s         Move to desktop #10.
+A-C-S-d         Move to desktop #11.
+A-C-S-f         Move to desktop #12.
+A-C-S-z         Move to desktop #13.
+A-C-S-x         Move to desktop #14.
+A-C-S-c         Move to desktop #15.
+A-C-S-v         Move to desktop #16.
 
 A-C-Return      Move to the previously active desktop.
 
