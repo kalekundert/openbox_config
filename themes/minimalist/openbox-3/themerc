@@ -75,8 +75,8 @@ window.inactive.button.disabled.image.color: #c0c0c0
 !!!window.active.client.color:  #181818
 !!!window.active.client.color:  #CACAB6
 
-!!window.active.border.color: #e18a51
-window.active.border.color: #ff5203
+!!window.active.border.color: #ff5203
+window.active.border.color: #cb4b16
 window.inactive.border.color: #CACAB6
 border.width: 3
 padding.width: 0
