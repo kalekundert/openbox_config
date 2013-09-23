@@ -1,4 +1,4 @@
-import gtk
+import subprocess
 
 # This module defines the geometry of every window assigned to a key binding.
 # The four most important parameters are screen_width, screen_height,
@@ -11,8 +11,12 @@ import gtk
 # windows fit into.  The default parameters were chosen to fit well with
 # 80-character terminals using a 10-point monospace font.
 
-screen_width = gtk.gdk.screen_width()
-screen_height = gtk.gdk.screen_height() - 1
+buffer = subprocess.check_output('xrandr')
+for line in buffer.split('\n'):
+    if '*' in line:
+        resolution = line.split()[0].split('x')
+        screen_width = int(resolution[0])
+        screen_height = int(resolution[1])
 
 onyx = { "top" : 22, "bottom" : 2, "sides" : 2 }
 clearlooks  = { "top" : 20, "bottom" : 5, "sides" : 2 }
@@ -30,10 +34,10 @@ horizontal_padding = 2 * theme["sides"]
 # the theme definition.  The 2 remaining pixels are provided by gvim and cannot
 # be changed.
 
-columns = 80 if screen_width > 1600 else 72
+columns = 80 if screen_width >= 1600 else 72
 
 x = division_width = 8 * columns + 4 + horizontal_padding
-y = division_height = 386
+y = division_height = 379
 z = 2 * division_width
 q = screen_width // 2
 

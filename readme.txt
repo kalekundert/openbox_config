@@ -1,38 +1,35 @@
 Installation
 ============
-Copy these files into the openbox configuration directory, which usually has
+Copy these files into the openbox configuration directory, which usually has 
 the following path:
 
     ~/.config/openbox
 
-By default, the configuration files use PyGTK to determine how large the screen
-is and to adjust the size of the windows accordingly.  On Red Hat systems,
-these libraries can be installed using the following command:
-
-    $ yum install pygtk2
-
-Alternatively, the size of the screen can be specified manually be setting the
-screen_width and screen_height parameters in the scripts/geometry.py script.
+By default, the configuration files use `xrandr' to determine how large the 
+screen is and to adjust the size of the windows accordingly.  I'm not sure if 
+this comes installed by default on most systems.  If you have problems, the 
+size of the screen can be specified manually be setting the screen_width and 
+screen_height parameters in the scripts/geometry.py script.
 
 The following command can be used to force openbox to reload its configuration 
 files:
 
     $ openbox --reconfigure
 
-Many of the keybindings use the control key.  This is much more convenient if
-the caps lock key is replaced with an extra control.  This can be done without
-too much trouble in GNOME, but I won't outline the process here because the
+Many of the keybindings use the control key.  This is much more convenient if 
+the caps lock key is replaced with an extra control.  This can be done without 
+too much trouble in GNOME, but I won't outline the process here because the 
 internet is probably more up to date.
 
 Keybindings for Launching Programs
 ==================================
-These keybindings may need to be customized to your system, because everyone
-likes to use different editors and browsers.  You can specify your favorite
+These keybindings may need to be customized to your system, because everyone 
+likes to use different editors and browsers.  You can specify your favorite 
 programs in the main keybinding script:
 
     ~/.config/openbox/scripts/keyboard.py
 
-For the terminal specifically, I've removed both the menu and the scrollbars.
+For the terminal specifically, I've removed both the menu and the scrollbars.  
 This helps the window fit better when using the default window sizes.
 
 A-q             Launch a terminal.          (Default: sakura)
