@@ -9,7 +9,7 @@
 from bindings import *
 from geometry import *
 
-terminal = '/home/kale/hacking/installs/bin/sakura --geometry=%dx%d'
+terminal = 'sakura --geometry=%dx%d'
 editor = 'gvim'
 browser = 'firefox'
 email = 'thunderbird'
@@ -20,6 +20,7 @@ backlight = 'xbacklight -steps 1 -%s 10'
 
 bindings = {
         'Escape': Execute(openbox),
+        'C-S-Escape': Execute(openbox + ' --debug'),
 
         'q': Execute(terminal % short_terminal),
         'w': Execute(browser),
