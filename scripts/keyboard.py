@@ -9,11 +9,12 @@
 from bindings import *
 from geometry import *
 
-terminal = 'sakura --geometry=%dx%d'
+terminal = '/home/kale/.local/bin/sakura --geometry=%dx%d'
 editor = 'gvim'
 browser = 'firefox'
 email = 'thunderbird'
-ipython = terminal + ' --class=Python -e "zsh -ic ipython"'
+htop = terminal + ' --class=Python -e "zsh -ic htop"'
+password = '/home/kale/.local/bin/abraxas --autotype'
 openbox = '~/.config/openbox/reconfigure.sh'
 pianobar = '/home/kale/hacking/scripts/music %s'
 backlight = 'xbacklight -steps 1 -%s 10'
@@ -23,10 +24,11 @@ bindings = {
         'C-S-Escape': Execute(openbox + ' --debug'),
 
         'q': Execute(terminal % short_terminal),
+        'C-q': Execute(htop % short_terminal),
         'w': Execute(browser),
         'C-w': Execute(email),
         'e': Execute(editor),
-        'r': Execute(ipython % tall_terminal),
+        'r': Execute(password),
 
         'Up': Execute(pianobar % 'louder'),
         'Down': Execute(pianobar % 'quieter'),
@@ -92,7 +94,7 @@ bindings = {
         'BackSpace': Action('Close') }
 
 # XML Generation
-keyboard = Keyboard()
+keyboard = Keyboard(prefix='W-')
 keyboard.bind(**bindings)
 keyboard.write('sections/keyboard.xml')
 

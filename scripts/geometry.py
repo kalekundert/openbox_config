@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 import subprocess
 
 # This module defines the geometry of every window assigned to a key binding.
@@ -35,25 +37,35 @@ horizontal_padding = 2 * theme["sides"]
 # be changed.
 
 columns = 80 if screen_width >= 1600 else 72
+rows = 24
 
 x = division_width = 8 * columns + 4 + horizontal_padding
-y = division_height = 379
+y = division_height = 15 * rows + 5 + vertical_padding
 z = 2 * division_width
 q = screen_width // 2
 
-full_width = screen_width - horizontal_padding
-full_height = screen_height - vertical_padding
+print x, y, z, q
 
-left_width = division_width - horizontal_padding
-left_middle_width = 2 * division_width - horizontal_padding
+full_width = screen_width
+full_height = screen_height
+
+print screen_height
+
+left_width = division_width
+left_middle_width = 2 * division_width
 middle_width = left_width
 middle_right_width = full_width - division_width
 right_width = middle_right_width - division_width
-half_width = (screen_width // 2) - horizontal_padding
+half_width = screen_width // 2
 
-top_height = division_height - vertical_padding
+top_height = division_height
 bottom_height = full_height - division_height
 
-short_terminal = left_width - 2, top_height - 2
-tall_terminal = left_width - 2, bottom_height - 2
+short_terminal = (
+        left_width - horizontal_padding - 2,
+        top_height - vertical_padding - 2)
+
+tall_terminal = (
+        left_width - horizontal_padding - 2,
+        bottom_height - vertical_padding - 2)
 

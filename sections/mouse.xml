@@ -6,7 +6,7 @@
   <screenEdgeWarpTime>400</screenEdgeWarpTime>
 
   <context name="Frame">
-    <mousebind button="A-Left" action="Drag">
+    <mousebind button="W-Left" action="Drag">
       <action name="Focus"/>
       <action name="Raise"/>
       <action name="Move"/>
