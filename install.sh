@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 
 if [ -n "$1" ]; then
     OPENBOX="$1"
