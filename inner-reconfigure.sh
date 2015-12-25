@@ -34,11 +34,9 @@ if [ -n "$EXTERNAL" ]; then
     # If something goes wrong, enable the internal monitor.
     if [ $? -ne 0 ]; then
         xrandr --output $INTERNAL --auto --output $EXTERNAL --off
-        xbacklight -set 100
     fi
 else
     xrandr --output $INTERNAL --auto --output HDMI1 --off --output HDMI2 --off
-    xbacklight -set 100
 fi
 
 # Recompiles the keybindings and updates the openbox configuration.  The path 
