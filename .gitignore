@@ -1,2 +1,4 @@
 rc.xml
 sections/keyboard.xml
+*.pyc
+.*.swp
