@@ -9,11 +9,10 @@
 from bindings import *
 from geometry import *
 
-terminal = '/home/kale/.local/bin/sakura --geometry=%dx%d'
+terminal = 'sakura'
 editor = 'gvim'
 browser = 'firefox'
 email = 'thunderbird'
-htop = terminal + ' --class=Python -e "zsh -ic htop"'
 password = '/home/kale/.local/bin/abraxas --autotype'
 openbox = '~/.config/openbox/reconfigure.sh'
 pianobar = '/home/kale/hacking/scripts/music %s'
@@ -23,8 +22,7 @@ bindings = {
         'Escape': Execute(openbox),
         'C-S-Escape': Execute(openbox + ' --debug'),
 
-        'q': Execute(terminal % short_terminal),
-        'C-q': Execute(htop % short_terminal),
+        'q': Execute(terminal),
         'w': Execute(browser),
         'C-w': Execute(email),
         'e': Execute(editor),

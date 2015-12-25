@@ -6,6 +6,7 @@ from xmlhelper import *
 # going on.  
 
 class Keyboard(object):
+
     def __init__(self, prefix='A-', chain_quit_key=None):
         document = make_document()
         keyboard = make_root(document, 'keyboard')
@@ -31,7 +32,9 @@ class Keyboard(object):
             self.document.writexml(
                     file, indent='  ', addindent='  ', newl='\n')
 
+
 class Keybind(object):
+
     def __init__(self, parent, key, **arguments):
         document = parent.document
         element = parent.element
@@ -42,15 +45,21 @@ class Keybind(object):
         self.document = document
         self.element = keybind
 
+
 class Chroot(Keybind):
+
     def __init__(self, parent, key):
         Keybind.__init__(self, parent, key, chroot='true')
 
+
 class Group(Keybind):
+
     def __init__(self, parent, key):
         Keybind.__init__(self, parent, key)
 
+
 class Action(object):
+
     def __init__(self, action=None, **arguments):
         self.actions = [action] if action else []
         self.arguments = [arguments] if action else []
@@ -76,28 +85,33 @@ class Action(object):
         self.arguments += other.arguments
         return self
 
+
 class Execute(Action):
-    def __init__(self, command, top=None, left=None, width=None, height=None):
-        arguments = top, left, width, height
-        empty = None, None, None, None
 
-        if not arguments == empty:
-            geometry = ' --geometry %dx%d+%d+%d' % (width, height, top, left)
-            command = command + geometry
-
+    def __init__(self, command, x=None, y=None, width=None, height=None):
         Action.__init__(self, 'Execute', command=command)
 
+        if any((x, y, width, height)):
+            self += Action('MoveResizeTo', x=x, y=y, width=width, height=height)
+
+
 class GoToDesktop(Action):
+
     def __init__(self, desktop):
         Action.__init__(self, 'GoToDesktop', to=desktop)
 
+
 class SendToDesktop(Action):
+
     def __init__(self, desktop, follow=False):
         Action.__init__(self, 'SendToDesktop', to=desktop, follow=follow)
 
+
 class MoveResizeTo(Action):
+
     def __init__(self, x, y, width, height):
         Action.__init__(self)
+
 
         self += Action('UnmaximizeFull')
         self += Action('MoveResizeTo', x=x, y=y, width=width, height=height)
