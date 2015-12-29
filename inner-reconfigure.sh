@@ -45,7 +45,8 @@ fi
 
 cd ~/.config/openbox
 
-python2 scripts/keyboard.py
-python2 scripts/compile.py
+python3 scripts/keyboard.py
+python3 scripts/applications.py
+python3 scripts/compile.py
 
 openbox --reconfigure

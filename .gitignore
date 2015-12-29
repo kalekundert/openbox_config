@@ -1,5 +1,6 @@
 rc.xml
-sections/keyboard.xml
 scripts/geometry.json
+sections/keyboard.xml
+sections/applications.xml
 *.pyc
 .*.swp
