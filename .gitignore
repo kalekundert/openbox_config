@@ -1,4 +1,5 @@
 rc.xml
 sections/keyboard.xml
+scripts/geometry.json
 *.pyc
 .*.swp

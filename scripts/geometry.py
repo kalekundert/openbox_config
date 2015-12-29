@@ -1,6 +1,6 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
-import subprocess
+import sh, json, pathlib
 
 # This module defines the geometry of every window assigned to a key binding.
 # The four most important parameters are screen_width, screen_height,
@@ -13,8 +13,7 @@ import subprocess
 # windows fit into.  The default parameters were chosen to fit well with
 # 80-character terminals using a 10-point monospace font.
 
-buffer = subprocess.check_output('xrandr')
-for line in buffer.split('\n'):
+for line in sh.xrandr(_iter=True):
     if '*' in line:
         resolution = line.split()[0].split('x')
         screen_width = int(resolution[0])
@@ -23,9 +22,7 @@ for line in buffer.split('\n'):
 onyx = { "top" : 22, "bottom" : 2, "sides" : 2 }
 clearlooks  = { "top" : 20, "bottom" : 5, "sides" : 2 }
 minimalist = { "top" : 3, "bottom" : 3, "sides" : 3 }
-
 theme = minimalist
-
 vertical_padding = theme["top"] + theme["bottom"]
 horizontal_padding = 2 * theme["sides"]
 
@@ -36,20 +33,28 @@ horizontal_padding = 2 * theme["sides"]
 # the theme definition.  The 2 remaining pixels are provided by gvim and cannot
 # be changed.
 
-columns = 80 if screen_width >= 1600 else 72
-rows = 24
+scripts_dir = pathlib.Path(__file__).parent
+geometry_json = scripts_dir / 'geometry.json'
 
-x = division_width = 8 * columns + 4 + horizontal_padding
-y = division_height = 15 * rows + 5 + vertical_padding
+if not geometry_json.is_file():
+    rows, columns = 24, 80 if screen_width >= 1600 else 72
+    division_width = 8 * columns + 4 + horizontal_padding
+    division_height = 15 * rows + 5 + vertical_padding
+
+with geometry_json.open() as file:
+    division_width, division_height = json.load(file)
+
+x = division_width
+y = division_height
 z = 2 * division_width
 q = screen_width // 2
 
-print x, y, z, q
+print(x, y, z, q)
 
 full_width = screen_width
 full_height = screen_height
 
-print screen_height
+print(screen_height)
 
 left_width = division_width
 left_middle_width = 2 * division_width
