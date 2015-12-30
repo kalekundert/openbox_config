@@ -13,8 +13,8 @@ make_text(doc, app, 'decor', 'no')
 
 # Define initial positions for specific applications.
 
-def place_app(doc, parent, program, x, y, w, h):
-    app = make_element(doc, apps, 'application', **{'class':program})
+def place_app(doc, parent, name, x, y, w, h):
+    app = make_element(doc, apps, 'application', name=name, type='normal')
     position = make_element(doc, app, 'position', force='yes')
     make_text(doc, position, 'x', x)
     make_text(doc, position, 'y', y)
@@ -23,9 +23,9 @@ def place_app(doc, parent, program, x, y, w, h):
     make_text(doc, size, 'height', h-6)
 
 
-place_app(doc, apps, 'Sakura', 0, 0, left_width, top_height)
-place_app(doc, apps, 'Gvim', 0, y, left_width, bottom_height + 30)
-place_app(doc, apps, 'Firefox', x, 0, middle_right_width, full_height)
+place_app(doc, apps, 'sakura', 0, 0, left_width, top_height)
+place_app(doc, apps, 'gvim', 0, y, left_width, bottom_height + 30)
+place_app(doc, apps, 'Navigator', x, 0, middle_right_width, full_height)
 
 # Generate the applications file.
 
