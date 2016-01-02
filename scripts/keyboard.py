@@ -17,10 +17,12 @@ password = '/home/kale/.local/bin/abraxas --autotype'
 openbox = '~/.config/openbox/reconfigure.sh'
 pianobar = '/home/kale/hacking/scripts/music %s'
 backlight = 'xbacklight -steps 1 -%s 10'
+suspend = 'systemctl suspend'
 
 bindings = {
         'Escape': Execute(openbox),
         'C-S-Escape': Execute(openbox + ' --debug'),
+        'F4': Execute(suspend),
 
         'q': Execute(terminal),
         'w': Execute(browser),
