@@ -24,6 +24,7 @@ def place_app(doc, parent, name, x, y, w, h):
 
 
 place_app(doc, apps, 'sakura', 0, 0, left_width, top_height)
+place_app(doc, apps, 'pithos', 0, 0, left_width, top_height)
 place_app(doc, apps, 'gvim', 0, y, left_width, bottom_height + 30)
 place_app(doc, apps, 'Navigator', x, 0, middle_right_width, full_height)
 
