@@ -9,9 +9,9 @@ fi
 
 # Launch gnome-keyring to automatically unlock my SSH keys as necessary.
 
-export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+export $(gnome-keyring-daemon --start)
 
-# Put info need by keyring in a file where things like cron can use it.
+# Put the info need by keyring in a file where things like cron can use it.
 
 env | grep DBUS_SESSION_BUS_ADDRESS > $HOME/.Xdbus
 env | grep GNOME_KEYRING_CONTROL >> $HOME/.Xdbus
