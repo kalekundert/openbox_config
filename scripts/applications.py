@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# Use ``obxprop | grep _OB_APP`` to determine how to identify a particular 
+# application.
+
 from geometry import *
 from xmlhelper import *
 
