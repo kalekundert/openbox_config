@@ -2,99 +2,101 @@
 
 # This script provides an expressive way to control openbox key-bindings.  The
 # most prominent part of the script is the bindings dictionary, which maps
-# hotkeys to actions.  Note that each hotkey is preceded by an implied 'Alt',
-# or 'A-' in the language of openbox.  You can find the name for any other key 
-# by running the 'xev' command.
+# hotkeys to actions.  You can find the name for any key-press by running the 
+# 'xev' command.
 
 from bindings import *
 from geometry import *
 
-terminal = 'sakura'
-editor = 'gvim'
+terminal = '~/.local/bin/sakura'
+python = '~/.local/bin/sakura -x xonsh'
 browser = 'firefox'
 email = 'thunderbird'
-password = '/home/kale/.local/bin/abraxas --autotype'
+editor = 'gvim'
+runner = 'gmrun'
 openbox = '~/.config/openbox/reconfigure.sh'
-pianobar = '/home/kale/hacking/scripts/music %s'
-backlight = 'xbacklight -steps 1 -%s 10'
-suspend = 'systemctl suspend'
+backlight = 'xbacklight -steps 1 -%s 5'
+audio = '~/.local/bin/pulseaudio-ctl %s'
+display = 'lxrandr'
+sleep = 'systemctl suspend'
 
 bindings = {
-        'Escape': Execute(openbox),
-        'C-S-Escape': Execute(openbox + ' --debug'),
-        'F4': Execute(suspend),
+        'A-Escape': Execute(openbox),
+        'W-Escape': Execute(openbox),
+        'W-C-S-Escape': Execute(openbox + ' --debug'),
 
-        'q': Execute(terminal),
-        'w': Execute(browser),
-        'C-w': Execute(email),
-        'e': Execute(editor),
-        'r': Execute(password),
+        'W-q': Execute(terminal),
+        'W-C-Q': Execute(python),
+        'W-w': Execute(browser),
+        'W-C-w': Execute(email),
+        'W-e': Execute(editor),
+        'W-r': Execute(runner),
 
-        'Up': Execute(pianobar % 'louder'),
-        'Down': Execute(pianobar % 'quieter'),
-        'S-Up': Execute(pianobar % 'unmute'),
-        'S-Down': Execute(pianobar % 'mute'),
-        'Left': Execute(pianobar % 'pause'),
-        'Right': Execute(pianobar % 'skip'),
-        'S-Left': Execute(pianobar % 'love'),
-        'S-Right': Execute(pianobar % 'hate'),
-        'Menu': Execute(pianobar % 'upcoming'),
+        'XF86Sleep': Execute(sleep),
+        'XF86Display': Execute(display),
+        'XF86AudioMute': Execute(audio % 'mute'),
+        'XF86AudioLowerVolume': Execute(audio % 'down 5'),
+        'XF86AudioRaiseVolume': Execute(audio % 'up 5'),
+        'XF86MonBrightnessUp': Execute(backlight % 'inc'),
+        'XF86MonBrightnessDown': Execute(backlight % 'dec'),
 
-        'Home': Execute(backlight % 'inc'),
-        'End': Execute(backlight % 'dec'),
+        'W-a': GoToDesktop(1), 'W-C-a': SendToDesktop(1),
+        'W-s': GoToDesktop(2), 'W-C-s': SendToDesktop(2),
+        'W-d': GoToDesktop(3), 'W-C-d': SendToDesktop(3),
+        'W-f': GoToDesktop(4), 'W-C-f': SendToDesktop(4),
+        'W-z': GoToDesktop(5), 'W-C-z': SendToDesktop(5),
+        'W-x': GoToDesktop(6), 'W-C-x': SendToDesktop(6),
+        'W-c': GoToDesktop(7), 'W-C-c': SendToDesktop(7),
+        'W-v': GoToDesktop(8), 'W-C-v': SendToDesktop(8),
+        'W-S-a': GoToDesktop(9), 'W-C-S-a': SendToDesktop(9),
+        'W-S-s': GoToDesktop(10), 'W-C-S-s': SendToDesktop(10),
+        'W-S-d': GoToDesktop(11), 'W-C-S-d': SendToDesktop(11),
+        'W-S-f': GoToDesktop(12), 'W-C-S-f': SendToDesktop(12),
+        'W-S-z': GoToDesktop(13), 'W-C-S-z': SendToDesktop(13),
+        'W-S-x': GoToDesktop(14), 'W-C-S-x': SendToDesktop(14),
+        'W-S-c': GoToDesktop(15), 'W-C-S-c': SendToDesktop(15),
+        'W-S-v': GoToDesktop(16), 'W-C-S-v': SendToDesktop(16),
 
-        'a': GoToDesktop(1), 'C-a': SendToDesktop(1),
-        's': GoToDesktop(2), 'C-s': SendToDesktop(2),
-        'd': GoToDesktop(3), 'C-d': SendToDesktop(3),
-        'f': GoToDesktop(4), 'C-f': SendToDesktop(4),
-        'z': GoToDesktop(5), 'C-z': SendToDesktop(5),
-        'x': GoToDesktop(6), 'C-x': SendToDesktop(6),
-        'c': GoToDesktop(7), 'C-c': SendToDesktop(7),
-        'v': GoToDesktop(8), 'C-v': SendToDesktop(8),
-        'S-a': GoToDesktop(9), 'C-S-a': SendToDesktop(9),
-        'S-s': GoToDesktop(10), 'C-S-s': SendToDesktop(10),
-        'S-d': GoToDesktop(11), 'C-S-d': SendToDesktop(11),
-        'S-f': GoToDesktop(12), 'C-S-f': SendToDesktop(12),
-        'S-z': GoToDesktop(13), 'C-S-z': SendToDesktop(13),
-        'S-x': GoToDesktop(14), 'C-S-x': SendToDesktop(14),
-        'S-c': GoToDesktop(15), 'C-S-c': SendToDesktop(15),
-        'S-v': GoToDesktop(16), 'C-S-v': SendToDesktop(16),
+        'W-y': MoveResizeTo(0, 0, left_middle_width, full_height),
+        'W-u': MoveResizeTo(0, 0, left_width, full_height),
+        'W-i': MoveResizeTo(x, 0, middle_width, full_height),
+        'W-o': MoveResizeTo(x, 0, middle_right_width, full_height),
+        'W-p': MoveResizeTo(z, 0, right_width, full_height),
 
-        'y': MoveResizeTo(0, 0, left_middle_width, full_height),
-        'u': MoveResizeTo(0, 0, left_width, full_height),
-        'i': MoveResizeTo(x, 0, middle_width, full_height),
-        'o': MoveResizeTo(x, 0, middle_right_width, full_height),
-        'p': MoveResizeTo(z, 0, right_width, full_height),
+        'W-h': MoveResizeTo(0, 0, left_width, top_height),
+        'W-j': MoveResizeTo(0, y, left_width, bottom_height),
+        'W-k': MoveResizeTo(x, 0, middle_width, top_height),
+        'W-l': MoveResizeTo(x, y, middle_width, bottom_height),
 
-        'h': MoveResizeTo(0, 0, left_width, top_height),
-        'j': MoveResizeTo(0, y, left_width, bottom_height),
-        'k': MoveResizeTo(x, 0, middle_width, top_height),
-        'l': MoveResizeTo(x, y, middle_width, bottom_height),
+        'W-S-h': MoveTo(0, 0),
+        'W-S-j': MoveTo(0, y),
+        'W-S-k': MoveTo(x, 0),
+        'W-S-l': MoveTo(x, y),
 
-        'C-h': MoveResizeTo(0, 0, full_width, top_height),
-        'C-j': MoveResizeTo(0, y, full_width, bottom_height),
-        'C-k': MoveResizeTo(x, 0, middle_right_width, top_height),
-        'C-l': MoveResizeTo(x, y, middle_right_width, bottom_height),
+        'W-C-h': MoveResizeTo(0, 0, full_width, top_height),
+        'W-C-j': MoveResizeTo(0, y, full_width, bottom_height),
+        'W-C-k': MoveResizeTo(x, 0, middle_right_width, top_height),
+        'W-C-l': MoveResizeTo(x, y, middle_right_width, bottom_height),
 
-        'semicolon': MoveResizeTo(z, 0, right_width, top_height),
-        'apostrophe': MoveResizeTo(z, y, right_width, bottom_height),
-        'bracketleft': MoveResizeTo(0, 0, half_width, full_height),
-        'bracketright': MoveResizeTo(q, 0, half_width, full_height),
+        'W-semicolon': MoveResizeTo(z, 0, right_width, top_height),
+        'W-apostrophe': MoveResizeTo(z, y, right_width, bottom_height),
+        'W-bracketleft': MoveResizeTo(0, 0, half_width, full_height),
+        'W-bracketright': MoveResizeTo(q, 0, half_width, full_height),
 
-        'n': Action('Iconify'),
-        'm': MoveResizeTo(0, 0, full_width, full_height),
+        'W-n': Action('Iconify'),
+        'W-m': MoveResizeTo(0, 0, full_width, full_height),
 
-        'Tab': Action('NextWindow'),
-        'S-Tab': Action('PreviousWindow'),
-        'C-Tab': Action('PreviousWindow'),
-        'Return': GoToDesktop('last'),
-        'S-Return': SendToDesktop('last'),
+        'W-Tab': Action('NextWindow'),
+        'W-S-Tab': Action('PreviousWindow'),
+        'W-C-Tab': Action('PreviousWindow'),
+        'W-Return': GoToDesktop('last'),
+        'W-S-Return': SendToDesktop('last'),
 
-        'S-Escape': Action('Exit'), 
-        'BackSpace': Action('Close') }
+        'W-S-Escape': Action('Exit'), 
+        'W-BackSpace': Action('Close') }
 
 # XML Generation
-keyboard = Keyboard(prefix='W-')
+keyboard = Keyboard()
 keyboard.bind(**bindings)
 keyboard.write('sections/keyboard.xml')
 

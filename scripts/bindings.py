@@ -7,7 +7,7 @@ from xmlhelper import *
 
 class Keyboard(object):
 
-    def __init__(self, prefix='A-', chain_quit_key=None):
+    def __init__(self, prefix='', chain_quit_key=None):
         document = make_document()
         keyboard = make_root(document, 'keyboard')
 
@@ -111,8 +111,14 @@ class MoveResizeTo(Action):
 
     def __init__(self, x, y, width, height):
         Action.__init__(self)
-
-
         self += Action('UnmaximizeFull')
         self += Action('MoveResizeTo', x=x, y=y, width=width, height=height)
+
+
+class MoveTo(Action):
+
+    def __init__(self, x, y):
+        Action.__init__(self)
+        self += Action('UnmaximizeFull')
+        self += Action('MoveResizeTo', x=x, y=y)
 
