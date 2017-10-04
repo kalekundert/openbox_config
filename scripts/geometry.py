@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import sh, json, pathlib
+import subprocess, json, pathlib
 
 # This module defines the geometry of every window assigned to a key binding.
 # The four most important parameters are screen_width, screen_height,
@@ -13,7 +13,8 @@ import sh, json, pathlib
 # windows fit into.  The default parameters were chosen to fit well with
 # 80-character terminals using a 10-point monospace font.
 
-for line in sh.xrandr(_iter=True):
+xrandr = subprocess.check_output('xrandr').decode()
+for line in xrandr.split('\n'):
     if '*' in line:
         resolution = line.split()[0].split('x')
         screen_width = int(resolution[0])
