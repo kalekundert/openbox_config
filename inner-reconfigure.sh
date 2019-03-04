@@ -6,7 +6,7 @@ date
 # Make the desktop black and replace caps lock with an extra control key.
 
 xsetroot -solid black
-setxkbmap -option ctrl:nocaps -option altwin:swap_alt_win
+setxkbmap -option -option ctrl:nocaps -option altwin:swap_alt_win -option compose:rctrl
 
 # Configure middle-mouse scrolling.
 
