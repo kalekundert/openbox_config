@@ -8,16 +8,16 @@
 from bindings import *
 from geometry import *
 
-terminal = '~/.local/bin/sakura'
-python = '~/.local/bin/sakura -x xonsh'
-browser = 'firefox'
+terminal = 'sakura'
+python = 'sakura -x xonsh'
+browser = 'qutebrowser'
 email = 'thunderbird'
 editor = 'gvim'
 runner = 'gmrun'
 openbox = '~/.config/openbox/reconfigure.sh'
 backlight = 'xbacklight -steps 1 -%s 5'
-audio = '~/.local/bin/pulseaudio-ctl %s'
-display = 'lxrandr'
+audio = 'pulseaudio-ctl %s'
+display = 'arandr'
 sleep = 'systemctl suspend'
 
 bindings = {
