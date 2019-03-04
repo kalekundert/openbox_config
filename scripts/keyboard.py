@@ -61,7 +61,7 @@ bindings = {
         'W-u': MoveResizeTo(0, 0, left_width, full_height),
         'W-i': MoveResizeTo(x, 0, middle_width, full_height),
         'W-o': MoveResizeTo(x, 0, middle_right_width, full_height),
-        'W-p': MoveResizeTo(z, 0, right_width, full_height),
+        'W-p': MoveResizeTo(xx, 0, right_width, full_height),
 
         'W-h': MoveResizeTo(0, 0, left_width, top_height),
         'W-j': MoveResizeTo(0, y, left_width, bottom_height),
@@ -78,10 +78,13 @@ bindings = {
         'W-C-k': MoveResizeTo(x, 0, middle_right_width, top_height),
         'W-C-l': MoveResizeTo(x, y, middle_right_width, bottom_height),
 
-        'W-semicolon': MoveResizeTo(z, 0, right_width, top_height),
-        'W-apostrophe': MoveResizeTo(z, y, right_width, bottom_height),
+        'W-semicolon': MoveResizeTo(xx, 0, right_width, top_height),
+        'W-apostrophe': MoveResizeTo(xx, y, right_width, bottom_height),
         'W-bracketleft': MoveResizeTo(0, 0, half_width, full_height),
-        'W-bracketright': MoveResizeTo(q, 0, half_width, full_height),
+        'W-bracketright': MoveResizeTo(x12, 0, half_width, full_height),
+        'W-S-bracketleft': MoveResizeTo(0, 0, third_width, full_height),
+        'W-S-bracketright': MoveResizeTo(x13, 0, third_width, full_height),
+        'W-S-backslash': MoveResizeTo(x23, 0, third_width, full_height),
 
         'W-n': Action('Iconify'),
         'W-m': MoveResizeTo(0, 0, full_width, full_height),
