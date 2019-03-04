@@ -1,1 +1,4 @@
+~/.local/bin/sakura &
 ~/.config/openbox/reconfigure.sh
+
+# vim: ft=sh
