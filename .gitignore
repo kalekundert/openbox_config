@@ -3,5 +3,6 @@ scripts/geometry.json
 sections/keyboard.xml
 sections/applications.xml
 /reconfigure.log
+/reconfigure.env
 *.pyc
 .*.swp
