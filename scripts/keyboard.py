@@ -9,11 +9,12 @@ from bindings import *
 from geometry import *
 
 terminal = 'sakura'
-python = 'sakura -x xonsh'
+python = 'sakura -x python'
 browser = 'qutebrowser'
 email = 'thunderbird'
-editor = 'gvim'
+editor = 'nvim-gtk'
 runner = 'gmrun'
+password = 'avendesora value'
 openbox = '~/.config/openbox/reconfigure.sh'
 backlight = 'xbacklight -steps 1 -%s 5'
 audio = 'pulseaudio-ctl %s'
@@ -26,11 +27,12 @@ bindings = {
         'W-C-S-Escape': Execute(openbox + ' --debug'),
 
         'W-q': Execute(terminal),
-        'W-C-Q': Execute(python),
+        'W-C-q': Execute(python),
         'W-w': Execute(browser),
         'W-C-w': Execute(email),
         'W-e': Execute(editor),
         'W-r': Execute(runner),
+        'W-C-r': Execute(password),
 
         'XF86Sleep': Execute(sleep),
         'XF86Display': Execute(display),
