@@ -2,6 +2,13 @@
 
 import subprocess, json, pathlib
 
+onyx = { "top" : 22, "bottom" : 2, "sides" : 2 }
+clearlooks  = { "top" : 20, "bottom" : 5, "sides" : 2 }
+minimalist = { "top" : 3, "bottom" : 3, "sides" : 3 }
+theme = minimalist
+vertical_padding = theme["top"] + theme["bottom"]
+horizontal_padding = 2 * theme["sides"]
+
 # This module defines the geometry of every window assigned to a key binding.
 # The four most important parameters are screen_width, screen_height,
 # division_width, and division_height.  The rest of the parameters are derived
@@ -19,13 +26,6 @@ for line in xrandr.split('\n'):
         resolution = line.split()[0].split('x')
         screen_width = int(resolution[0])
         screen_height = int(resolution[1])
-
-onyx = { "top" : 22, "bottom" : 2, "sides" : 2 }
-clearlooks  = { "top" : 20, "bottom" : 5, "sides" : 2 }
-minimalist = { "top" : 3, "bottom" : 3, "sides" : 3 }
-theme = minimalist
-vertical_padding = theme["top"] + theme["bottom"]
-horizontal_padding = 2 * theme["sides"]
 
 # When using a 10-point monospace font, each column in a gvim window is 8
 # pixels wide.  The full width of the window is 10 pixels wider than the sum of
