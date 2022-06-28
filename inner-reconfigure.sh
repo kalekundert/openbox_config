@@ -24,20 +24,7 @@ configure_trackpoint "pointer:Lite-On Technology Corp. ThinkPad USB Keyboard wit
 # Typically, only one monitor is used at a time.  If an external monitor is 
 # present, it is preferred over the internal one.
 
-INTERNAL=$(xrandr | grep 'LVDS' | grep "\bconnected\b" | cut -d" " -f1)
-EXTERNAL=$(xrandr | grep 'HDMI\|VGA\|DP' | grep "\bconnected\b" | cut -d" " -f1)
-
-if [ -n "$EXTERNAL" ]; then
-    xrandr --output $EXTERNAL --off --output $INTERNAL --off
-    xrandr --output $EXTERNAL --auto
-
-    # If something goes wrong, enable the internal monitor.
-    if [ $? -ne 0 ]; then
-        xrandr --output $INTERNAL --auto --output $EXTERNAL --off
-    fi
-else
-    xrandr --output $INTERNAL --auto --output HDMI1 --off --output HDMI2 --off
-fi
+python3 pick-monitors.py
 
 # Recompiles the keybindings and updates the openbox configuration.  The path 
 # to the configuration directory must be manually specified, although it is 
