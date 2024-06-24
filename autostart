@@ -1,4 +1,8 @@
-~/.local/bin/sakura &
+dunst &
+hms-mail &
+thunderbird &
+slack &
+zotero &
 ~/.config/openbox/reconfigure.sh
 
 # vim: ft=sh
