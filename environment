@@ -38,9 +38,19 @@ echo 'export SSH_AUTH_SOCK' >> $HOME/.Xdbus
 export PATH=~/.virtualenvs/python37/bin:~/.virtualenvs/python27/bin:~/.shell/scripts:~/.local/bin:/local/bin:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin 
 
 # Tell GTK and QT to use my X11 composite key configuration.
+#
+# Note: The XIM input method (which is apparently ancient) triggers bug #3664 
+# in inkscape when the text tool is activated.  A workaround is to use the 
+# 'gtk-in-context-simple' method for GTK, which makes an effort to read the 
+# same `.Xcompose` file.  Longer term solutions might be to use a different 
+# input method, e.g. `ibus` or `uim`, but I'm not sure if either of those 
+# support the same succinct hotkeys I have.
+#
+# More info:
+# https://unix.stackexchange.com/questions/260601/understanding-setting-up-different-input-methods
 
-export GTK_IM_MODULE=xim
-export QT_IM_MODULE=xim
+export GTK_IM_MODULE=gtk-im-context-simple
+export QT_IM_MODULE=simple
 export XMODIFIERS="@im=none"
 
 # vim: ft=sh
