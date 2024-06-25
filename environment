@@ -4,18 +4,6 @@
 # Make sure this script is running.
 date > ~/.config/openbox/environment.log
 
-# Set $PATH so that you don't need to specify absolute paths for anything in 
-# rc.xml.  Note that I don't like how $PATH is hard-coded and basically copied 
-# from the shell configuration here, but I can't think of an better way to 
-# achieve the same effect.
- 
-# I used to have this broken into one-path-per-line with backslashes at the end 
-# of each line, but this mysteriously stopped working ($PATH was ending up an 
-# empty string, and that was fucking up all sorts of things).  So now I have it 
-# all on one big line.
-
-export PATH=~/.virtualenvs/python37/bin:~/.virtualenvs/python27/bin:~/.shell/scripts:~/.local/bin:/local/bin:/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin 
-
 # Tell GTK and QT to use my X11 composite key configuration.
 #
 # Note: The XIM input method (which is apparently ancient) triggers bug #3664 
