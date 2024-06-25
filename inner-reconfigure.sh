@@ -14,6 +14,10 @@ setxkbmap -option ctrl:nocaps -option altwin:swap_alt_win -option compose:rctrl 
 
 xset s off -dpms
 
+# Turn off beeping (don't know how this got enabled in the first place).
+
+xset b off
+
 # Configure middle-mouse scrolling.
 
 function configure_trackpoint () {
