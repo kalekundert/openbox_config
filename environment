@@ -1,30 +1,6 @@
 # Note that this script is not executed if OpenBox is run as part of a desktop 
 # envoronment (e.g. GNOME or LXDE).
 
-# Make sure DBUS is up and running.
-
-if test -z "$DBUS_SESSION_BUS_ADDRESS"; then
-    eval $(dbus-launch --sh-syntax --exit-with-session)
-fi
-
-# Launch gnome-keyring to automatically unlock my SSH keys as necessary.
-
-export $(gnome-keyring-daemon --start)
-
-# Put the info need by keyring in a file where things like cron can use it.
-
-env | grep DBUS_SESSION_BUS_ADDRESS > $HOME/.Xdbus
-env | grep GNOME_KEYRING_CONTROL >> $HOME/.Xdbus
-env | grep GNOME_KEYRING_PID >> $HOME/.Xdbus
-env | grep GPG_AGENT_INFO >> $HOME/.Xdbus
-env | grep SSH_AUTH_SOCK >> $HOME/.Xdbus
-
-echo 'export DBUS_SESSION_BUS_ADDRESS' >> $HOME/.Xdbus
-echo 'export GNOME_KEYRING_CONTROL' >> $HOME/.Xdbus
-echo 'export GNOME_KEYRING_PID' >> $HOME/.Xdbus
-echo 'export GPG_AGENT_INFO' >> $HOME/.Xdbus
-echo 'export SSH_AUTH_SOCK' >> $HOME/.Xdbus
-
 # Set $PATH so that you don't need to specify absolute paths for anything in 
 # rc.xml.  Note that I don't like how $PATH is hard-coded and basically copied 
 # from the shell configuration here, but I can't think of an better way to 
