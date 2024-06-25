@@ -8,6 +8,12 @@ date
 xsetroot -solid black
 setxkbmap -option ctrl:nocaps -option altwin:swap_alt_win -option compose:rctrl -option terminate:ctrl_alt_bksp
 
+# Disable screen blanking.  Use `set dpms force off` to blank the screen
+# manually.  See the Arch Wiki:
+# https://wiki.archlinux.org/title/Display_Power_Management_Signaling
+
+xset s off -dpms
+
 # Configure middle-mouse scrolling.
 
 function configure_trackpoint () {
@@ -24,6 +30,11 @@ configure_trackpoint "pointer:Lite-On Technology Corp. ThinkPad USB Keyboard wit
 # Typically, only one monitor is used at a time.  If an external monitor is 
 # present, it is preferred over the internal one.
 
+# 2022/08/01: After an OS update, this command became necessary.  Without it, 
+# any xrandr command fails with the following error:
+#
+# xrandr: output LVDS1 cannot use rotation "normal" reflection "none"
+xrandr --output LVDS1 --rotate normal --reflect normal
 python3 pick-monitors.py
 
 # Recompiles the keybindings and updates the openbox configuration.  The path 
