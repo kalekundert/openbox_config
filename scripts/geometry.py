@@ -48,6 +48,7 @@ with geometry_json.open() as file:
 x = division_width
 y = division_height
 xx = 2 * division_width
+xxx = 3 * division_width
 x12 = screen_width // 2
 x13 = screen_width // 3
 x23 = 2 * screen_width // 3
@@ -57,9 +58,12 @@ full_height = screen_height
 
 left_width = division_width
 left_middle_width = 2 * division_width
-middle_width = left_width
-middle_right_width = full_width - division_width
-right_width = middle_right_width - division_width
+middle_width = division_width
+middle_full_width = full_width - left_width
+right_width = min(division_width, full_width - left_middle_width)
+right_full_width = full_width - left_middle_width
+far_right_width = min(division_width, full_width - xxx)
+far_right_full_width = full_width - xxx
 half_width = screen_width // 2
 third_width = screen_width // 3
 

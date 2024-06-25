@@ -8,11 +8,13 @@
 from bindings import *
 from geometry import *
 
-terminal = 'sakura'
-python = 'sakura -x python'
+terminal = 'alacritty'
+python = 'alacritty -e python'
+xonsh = 'alacritty -e xonsh'
 browser = 'qutebrowser'
+kill_browser = 'killall qutebrowser'
 email = 'thunderbird'
-editor = 'nvim-gtk'
+editor = 'gvim'
 runner = 'gmrun'
 password = 'avendesora value'
 openbox = '~/.config/openbox/reconfigure.sh'
@@ -21,13 +23,14 @@ audio = 'pulseaudio-ctl %s'
 display = 'arandr'
 sleep = 'systemctl suspend'
 
+
 bindings = {
         'A-Escape': Execute(openbox),
         'W-Escape': Execute(openbox),
         'W-C-S-Escape': Execute(openbox + ' --debug'),
 
         'W-q': Execute(terminal),
-        'W-C-q': Execute(python),
+        'W-C-q': Execute(xonsh),
         'W-w': Execute(browser),
         'W-C-w': Execute(email),
         'W-e': Execute(editor),
@@ -59,34 +62,39 @@ bindings = {
         'W-S-c': GoToDesktop(15), 'W-C-S-c': SendToDesktop(15),
         'W-S-v': GoToDesktop(16), 'W-C-S-v': SendToDesktop(16),
 
-        'W-y': MoveResizeTo(0, 0, left_middle_width, full_height),
-        'W-u': MoveResizeTo(0, 0, left_width, full_height),
-        'W-i': MoveResizeTo(x, 0, middle_width, full_height),
-        'W-o': MoveResizeTo(x, 0, middle_right_width, full_height),
-        'W-p': MoveResizeTo(xx, 0, right_width, full_height),
+        'W-y':   MoveResizeTo(0, 0, left_middle_width, full_height),
+        'W-u':   MoveResizeTo(0, 0, left_width, full_height),
+        'W-C-u': MoveResizeTo(0, 0, left_middle_width, full_height),
+        'W-i':   MoveResizeTo(x, 0, middle_width, full_height),
+        'W-C-i': MoveResizeTo(x, 0, middle_full_width, full_height),
+        'W-o':   MoveResizeTo(xx, 0, right_width, full_height),
+        'W-C-o': MoveResizeTo(xx, 0, right_full_width, full_height),
+        'W-p':   MoveResizeTo(xxx, 0, far_right_width, full_height),
+        'W-C-p': MoveResizeTo(xxx, 0, far_right_full_width, full_height),
 
-        'W-h': MoveResizeTo(0, 0, left_width, top_height),
-        'W-j': MoveResizeTo(0, y, left_width, bottom_height),
-        'W-k': MoveResizeTo(x, 0, middle_width, top_height),
-        'W-l': MoveResizeTo(x, y, middle_width, bottom_height),
+        'W-h':   MoveResizeTo(0, 0, left_width, top_height),
+        'W-C-h': MoveResizeTo(0, 0, full_width, top_height),
+        'W-j':   MoveResizeTo(0, y, left_width, bottom_height),
+        'W-C-j': MoveResizeTo(0, y, full_width, bottom_height),
+        'W-k':   MoveResizeTo(x, 0, middle_width, top_height),
+        'W-C-k': MoveResizeTo(x, 0, middle_full_width, top_height),
+        'W-l':   MoveResizeTo(x, y, middle_width, bottom_height),
+        'W-C-l': MoveResizeTo(x, y, middle_full_width, bottom_height),
 
         'W-S-h': MoveTo(0, 0),
         'W-S-j': MoveTo(0, y),
         'W-S-k': MoveTo(x, 0),
         'W-S-l': MoveTo(x, y),
 
-        'W-C-h': MoveResizeTo(0, 0, full_width, top_height),
-        'W-C-j': MoveResizeTo(0, y, full_width, bottom_height),
-        'W-C-k': MoveResizeTo(x, 0, middle_right_width, top_height),
-        'W-C-l': MoveResizeTo(x, y, middle_right_width, bottom_height),
-
-        'W-semicolon': MoveResizeTo(xx, 0, right_width, top_height),
-        'W-apostrophe': MoveResizeTo(xx, y, right_width, bottom_height),
+        'W-semicolon':    MoveResizeTo(xx, 0, right_width, top_height),
+        'W-C-semicolon':  MoveResizeTo(xx, 0, right_full_width, top_height),
+        'W-apostrophe':   MoveResizeTo(xx, y, right_width, bottom_height),
+        'W-C-apostrophe': MoveResizeTo(xx, y, right_full_width, bottom_height),
         'W-bracketleft': MoveResizeTo(0, 0, half_width, full_height),
         'W-bracketright': MoveResizeTo(x12, 0, half_width, full_height),
-        'W-S-bracketleft': MoveResizeTo(0, 0, third_width, full_height),
-        'W-S-bracketright': MoveResizeTo(x13, 0, third_width, full_height),
-        'W-S-backslash': MoveResizeTo(x23, 0, third_width, full_height),
+        'W-C-bracketleft': MoveResizeTo(0, 0, third_width, full_height),
+        'W-C-bracketright': MoveResizeTo(x13, 0, third_width, full_height),
+        'W-C-backslash': MoveResizeTo(x23, 0, third_width, full_height),
 
         'W-n': Action('Iconify'),
         'W-m': MoveResizeTo(0, 0, full_width, full_height),
@@ -98,7 +106,9 @@ bindings = {
         'W-S-Return': SendToDesktop('last'),
 
         'W-S-Escape': Action('Exit'), 
-        'W-BackSpace': Action('Close') }
+        'W-BackSpace': Action('Close'),
+        'W-C-S-BackSpace': Execute(kill_browser),
+}
 
 # XML Generation
 keyboard = Keyboard()
