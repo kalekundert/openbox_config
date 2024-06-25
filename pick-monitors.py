@@ -9,16 +9,25 @@ Options:
         Show the commands that would be run, but don't actually run them.
 """
 
+# DP2 should be 2560x1440
+
 import docopt
 import re, subprocess, shlex
+from dataclasses import dataclass
+
+@dataclass
+class Monitor:
+    name: str
+    connected: bool
 
 def find_monitors():
     xrandr = subprocess.run(['xrandr'], capture_output=True, text=True)
     monitors = []
 
     for line in xrandr.stdout.splitlines():
-        if re.search(r'\bconnected\b', line):
-            monitor = line.split()[0]
+        if m := re.search(r'([A-Z]+\d+) ((?:dis)?connected)\b', line):
+            name, status = m.groups()
+            monitor = Monitor(name, status == 'connected')
             monitors.append(monitor)
 
     return monitors
@@ -26,27 +35,41 @@ def find_monitors():
 def toggle_monitors(monitors, dry_run=False):
     internal = []
     external = []
+    off = []
 
     for monitor in monitors:
-        if monitor.startswith('LVDS'):
+        if not monitor.connected:
+            off.append(monitor)
+        elif monitor.name.startswith('LVDS'):
             internal.append(monitor)
         else:
             external.append(monitor)
 
     if external:
-        # I don't really understand why, but this seems to be more robust when done 
-        # in two steps rather than one...
         try:
-            run_xrandr(
-                    *display_args(monitors, False),
-                    dry_run=dry_run,
-                    check=True,
-            )
+            # When I turn off the internal displays and turn on the external 
+            # displays in the same step, the external displays sometimes end up 
+            # low-resolution.
+            #
+            # When I turn off the internal displays and turn on the external 
+            # displays in different steps, the windows tend to move around.
+
             run_xrandr(
                     *display_args(external, True),
+                    *display_args(internal + off, False),
                     dry_run=dry_run,
                     check=True,
             )
+            # run_xrandr(
+            #         *display_args(monitors, False),
+            #         dry_run=dry_run,
+            #         check=True,
+            # )
+            # run_xrandr(
+            #         *display_args(external, True),
+            #         dry_run=dry_run,
+            #         check=True,
+            # )
         except subprocess.CalledProcessError:
             pass
         else:
@@ -54,7 +77,7 @@ def toggle_monitors(monitors, dry_run=False):
 
     run_xrandr(
             *display_args(internal, True),
-            *display_args(external, False),
+            *display_args(external + off, False),
             dry_run=dry_run,
     )
 
@@ -64,10 +87,11 @@ def run_xrandr(*args, dry_run, **kwargs):
     if not dry_run:
         return subprocess.run(xrandr, **kwargs)
 
-def display_args(monitors, value):
+
+def display_args(monitors, enable):
     args = []
     for monitor in monitors:
-        args += ['--output', monitor, '--auto' if value else '--off']
+        args += ['--output', monitor.name, '--auto' if enable else '--off']
     return args
 
 
