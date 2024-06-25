@@ -20,6 +20,10 @@ export GTK_IM_MODULE=gtk-im-context-simple
 export QT_IM_MODULE=simple
 export XMODIFIERS="@im=none"
 
+# Prevent alacritty from rescaling fonts based on DPI.
+# https://github.com/alacritty/alacritty/issues/3465
+export WINIT_X11_SCALE_FACTOR=1
+
 # Log what the environment looked like by the end of this script.
 env >> ~/.config/openbox/environment.log
 
