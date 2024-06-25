@@ -1,6 +1,9 @@
 # Note that this script is not executed if OpenBox is run as part of a desktop 
 # envoronment (e.g. GNOME or LXDE).
 
+# Make sure this script is running.
+date > ~/.config/openbox/environment.log
+
 # Set $PATH so that you don't need to specify absolute paths for anything in 
 # rc.xml.  Note that I don't like how $PATH is hard-coded and basically copied 
 # from the shell configuration here, but I can't think of an better way to 
@@ -28,5 +31,8 @@ export PATH=~/.virtualenvs/python37/bin:~/.virtualenvs/python27/bin:~/.shell/scr
 export GTK_IM_MODULE=gtk-im-context-simple
 export QT_IM_MODULE=simple
 export XMODIFIERS="@im=none"
+
+# Log what the environment looked like by the end of this script.
+env >> ~/.config/openbox/environment.log
 
 # vim: ft=sh

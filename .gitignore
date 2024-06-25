@@ -2,6 +2,7 @@ rc.xml
 scripts/geometry.json
 sections/keyboard.xml
 sections/applications.xml
+/environment.log
 /reconfigure.log
 /reconfigure.env
 *.pyc
