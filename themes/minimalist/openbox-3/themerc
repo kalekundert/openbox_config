@@ -98,3 +98,5 @@ osd.border.color: #404040
 osd.border.width: 1
 
 !! }}}1
+
+!! vim: fdm=marker
