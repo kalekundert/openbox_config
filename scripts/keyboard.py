@@ -19,7 +19,9 @@ runner = 'gmrun'
 password = 'avendesora value'
 openbox = '~/.config/openbox/reconfigure.sh'
 backlight = 'xbacklight -steps 1 -%s 5'
-audio = 'pulseaudio-ctl %s'
+volume_mute = 'wpctl set-mute @DEFAULT_SINK@ toggle'
+volume_up = 'wpctl set-volume @DEFAULT_SINK@ 5%+'
+volume_down = 'wpctl set-volume @DEFAULT_SINK@ 5%-'
 display = 'arandr'
 sleep = 'systemctl suspend'
 
@@ -39,9 +41,9 @@ bindings = {
 
         'XF86Sleep': Execute(sleep),
         'XF86Display': Execute(display),
-        'XF86AudioMute': Execute(audio % 'mute'),
-        'XF86AudioLowerVolume': Execute(audio % 'down 5'),
-        'XF86AudioRaiseVolume': Execute(audio % 'up 5'),
+        'XF86AudioMute': Execute(volume_mute),
+        'XF86AudioLowerVolume': Execute(volume_down),
+        'XF86AudioRaiseVolume': Execute(volume_up),
         'XF86MonBrightnessUp': Execute(backlight % 'inc'),
         'XF86MonBrightnessDown': Execute(backlight % 'dec'),
 
